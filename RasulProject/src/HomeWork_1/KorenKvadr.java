@@ -1,3 +1,4 @@
+package HomeWork_1;
 
 public class KorenKvadr {
 
