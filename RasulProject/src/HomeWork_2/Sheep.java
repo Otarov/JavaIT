@@ -1,5 +1,5 @@
 package HomeWork_2;
 
-public class Sheep {
+public class Sheep extends Pet {	// класс овец
 
 }

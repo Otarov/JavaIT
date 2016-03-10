@@ -7,9 +7,9 @@ public class KorenKvadr {
 		
 		boolean KorenNaiden = false;
 		int x = 1;
-		while (!(KorenNaiden) && (Kvadr(x) <= a)){
+		while (!(KorenNaiden) && (Kvadr(x) <= a)){  // проверка услови€ 
 			
-			System.out.println("x = " + x + " Kvadr = " + Kvadr(x));
+	//		System.out.println("x = " + x + " Kvadr = " + Kvadr(x));
 		
 			
 			if (Kvadr(x) == a) {
@@ -18,7 +18,9 @@ public class KorenKvadr {
 			else x++;
 		}
 		
-		if (!KorenNaiden) System.out.println("÷елочисленный корень квадратный числа " + a + " не найден");
+		if (!KorenNaiden)  System.out.println("÷елочисленный корень квадратный числа " + a + " не найден");
+		else System.out.println(" орень квадратный числа " + a + " равен " + x + ".");
+		
 		// TODO Auto-generated method stub
 
 	}

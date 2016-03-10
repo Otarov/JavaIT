@@ -1,5 +1,5 @@
 package HomeWork_2;
 
-public class Cock {
+public class Cock extends Pet{		// класс петухов
 
 }

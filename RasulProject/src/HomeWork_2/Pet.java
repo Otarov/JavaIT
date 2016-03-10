@@ -27,6 +27,9 @@ public abstract class Pet { 	// Общий класс домашних животных, у любого из котор
 		this.alive = alive;
 	}
 	
+	public abstract void move();	// пустой абстрактный метод перемещаться, а каким обазом,
+									// пока не известно.
+	
 	public abstract void voice();	// пустой абстрактный метод издавать звуки, а какие именно,
 									// и даже какого рода эти звуки, пока не известно.
 	
@@ -34,7 +37,7 @@ public abstract class Pet { 	// Общий класс домашних животных, у любого из котор
 		return ++age;
 	}
 	
-	public int beOld(int age, int k){				// Старение на k лет
+	public int beOld(int age, int k){		// Старение на k лет
 		age +=k;
 		return age;
 	}
