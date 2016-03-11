@@ -21,15 +21,17 @@ public abstract class Pet { 	// Общий класс домашних животных, у любого из котор
 		else System.out.println("Возраст не может быть отрицательным!"); 
 	}
 	
-	public boolean isAlive() {				// и его жизнеспособности
+	public boolean getAlive() {				// и его жизнеспособности
 		return alive;
 	}
-	public void setAlive(boolean alive) {
+	public void setAlive(boolean alive) {  // ???
 		this.alive = alive;
 	}
 	
 	public abstract void move();	// пустой абстрактный метод перемещаться, а каким обазом,
 									// пока не известно.
+	
+									
 	
 	public abstract void voice();	// пустой абстрактный метод издавать звуки, а какие именно,
 									// и даже какого рода эти звуки, пока не известно.
@@ -44,5 +46,15 @@ public abstract class Pet { 	// Общий класс домашних животных, у любого из котор
 		return age;
 	}
 	
+	public void died(){		// Смерть
+		if (alive) alive = false;
+		else System.out.println("Животное не может второй раз умереть!");
+	}
+	
+	
+	
+	public void eat(Human man){				// Т.к. это дом. жив. кушать оно может только 
+		System.out.println("Меня покормил " + man);		// с помощью человека (параметром является объект типа человек)
+	}
 }
 
