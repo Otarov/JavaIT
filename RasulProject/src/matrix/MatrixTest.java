@@ -35,7 +35,8 @@ public class MatrixTest {
 		System.out.println("Вторая матрица, созданная по умолчанию при вводе только размерности");
 		
 		array2.matrixPrint();
-		Matrix arraySumm = array1.matrixSumm(array2);
+		Matrix arraySumm = new Matrix();
+		arraySumm = array1.matrixSumm(array2);
 		System.out.println("Сумма двух матриц:");
 		arraySumm.matrixPrint();
 		

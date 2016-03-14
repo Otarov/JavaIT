@@ -25,7 +25,7 @@ public class Cat extends Pet {
 
 	@Override
 	public void move() {
-		if (alive) System.out.println("ходит ногами");// расширенный метод перемещени€ - ходить
+		if (getAlive()) System.out.println("ходит ногами");// расширенный метод перемещени€ - ходить
 		else System.out.println("ќн больше не пойдет никуда! ((");
 	}
 
