@@ -8,8 +8,6 @@ import java.util.Iterator;
 import java.util.Random;
 import java.util.Set;
 
-import collections.collectionEmployee.Employee;
-
 public class UnionIntersectSet {
 
 	public static void main(String[] args) throws IOException {
@@ -17,7 +15,7 @@ public class UnionIntersectSet {
 		Set<Integer> set1 = new HashSet<Integer>();
 		Set<Integer> set2 = new HashSet<Integer>();
 
-		System.out.println("¬ыберите способ заполнени€ списков:");
+		System.out.println("¬ыберите способ заполнени€ множеств:");
 		System.out.println("1 - ручной ввод;");
 		System.out.println("2 - случайным образом;");
 		BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
