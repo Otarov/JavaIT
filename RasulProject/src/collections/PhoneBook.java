@@ -2,21 +2,25 @@ package collections;
 
 import java.util.ArrayList;
 import java.util.Date;
-import java.util.HashMap;
-import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
-import java.util.Map;
 import java.util.Random;
-import java.util.Set;
 
 public class PhoneBook {
 
-	public static void main(String[] args) {
-		ArrayList<String> numbers = new ArrayList<>();
+	static ArrayList<String> numbers = new ArrayList<>();
+	static int n = 1000000;   // количество элементов
+	public static void main(String[] args) { 
 		addNumbers(numbers);
+		
+		ThreadSet thS = new ThreadSet();
+		ThreadMap thM = new ThreadMap();
+		ThreadArr thA = new ThreadArr();
+		thS.run();
+		thM.run();
+		thA.run();
 
-		int n = 1000000;   // количество элементов
+		
 		// списки
 		ArrayList<Abonent> phBookList = new ArrayList<>();
 
@@ -42,75 +46,10 @@ public class PhoneBook {
 		System.out.println("Поиск номеров среди " + phBookList.size() + " записей завершился через " + msDelay + " мс");
 
 		System.out.println("********************************");
-		// множество
-		Set<Abonent> phBookSet = new HashSet<>();
-
-		System.out.println("Заполнение множества началось.");
-		currentTime = new Date();
-		addPhoneBookSet(phBookSet, n);
-		newTime = new Date();
-		msDelay = newTime.getTime() - currentTime.getTime(); // вычисление
-																// разницы
-		System.out.println("Заполнение множества завершилось через " + msDelay + " мс");
-
-//		printAllBook(phBookList);
-		System.out.println("=========================================");
-
-		System.out.println("Поиск номеров начался.");
-		currentTime = new Date();
-		findNumbersS(phBookSet, numbers);
-		newTime = new Date();
-		msDelay = newTime.getTime() - currentTime.getTime();
-		System.out.println("Поиск номеров среди " + phBookList.size() + " записей завершился через " + msDelay + " мс");
-
-		System.out.println("********************************");
-		// карта
-		Map<String, Abonent> phBookMap = new HashMap<>();
-
-		System.out.println("Заполнение карты началось.");
-		currentTime = new Date();
-		addPhoneBookMap(phBookMap, n);
-		newTime = new Date();
-		msDelay = newTime.getTime() - currentTime.getTime(); // вычисление
-																// разницы
-		System.out.println("Заполнение карты завершилось через " + msDelay + " мс");
-
-//		printAllBookM(phBookMap);
-
-		System.out.println("=========================================");
-		System.out.println("Поиск номеров начался.");
-		currentTime = new Date();
-		findNumbersL(phBookList, numbers);
-		newTime = new Date();
-		msDelay = newTime.getTime() - currentTime.getTime();
-		System.out.println("Поиск номеров среди " + phBookList.size() + " записей завершился через " + msDelay + " мс");
 		
 		
-		// массив
-				Abonent[] phBookArr = new Abonent[n];
-
-				System.out.println("********************************");
-
-				System.out.println("Заполнение массива началось.");
-				currentTime = new Date();
-				addPhoneBookArr(phBookArr, n);
-				newTime = new Date();
-				msDelay = newTime.getTime() - currentTime.getTime(); // вычисление
-																			// разницы
-				System.out.println("Заполнение массива завершилось через " + msDelay + " мс");
-
-				// printAllBookArr(phBookArr); // это если интересно, что получилось
-
-				System.out.println("=========================================");
-
-				System.out.println("Поиск номеров начался.");
-				currentTime = new Date();
-				findNumbersArr(phBookArr, numbers);
-				newTime = new Date();
-				msDelay = newTime.getTime() - currentTime.getTime();
-				System.out.println("Поиск номеров среди " + phBookList.size() + " записей завершился через " + msDelay + " мс");
-
-				System.out.println("********************************");
+		
+		
 				System.out.println("***** ТЕСТ ЗАВЕРШЕН *****");
 				
 	}
@@ -164,120 +103,8 @@ public class PhoneBook {
 
 	}
 
-	// методы множества
+	
 
-	public static void addPhoneBookSet(Set<Abonent> phBookList, int n) {
 
-		for (int i = 0; i < n; i++) {
-
-			Random r = new Random();
-			String name = "Abonent " + i;
-			String number = "+7 ";
-			for (int j = 0; j < 10; j++) {
-				number += Integer.toString(r.nextInt(9));
-			}
-			Abonent abon = new Abonent(name, number);
-			phBookList.add(abon);
-		}
-	}
-
-	public static void findNumbersS(Set<Abonent> phB, ArrayList<String> numb) {
-
-		for (Iterator<Abonent> iter = phB.iterator(); iter.hasNext();) {
-			Abonent ab = new Abonent();
-			ab = iter.next();
-			String currentPhNumber = ab.getPhoneNumber();
-			if (numb.contains(currentPhNumber))
-				ab.AbonentPrint();
-		}
-
-	}
-
-	public static void printAllBookS(Set<Abonent> phB) {
-
-		for (Iterator<Abonent> iter = phB.iterator(); iter.hasNext();) {
-			Abonent ab = new Abonent();
-			ab = iter.next();
-			ab.AbonentPrint();
-		}
-
-	}
-
-	// методы карты
-	public static void addPhoneBookMap(Map<String, Abonent> phBookList, int n) {
-
-		for (int i = 0; i < n; i++) {
-
-			Random r = new Random();
-			String name = "Abonent " + i;
-			String number = "+7 ";
-			for (int j = 0; j < 10; j++) {
-				number += Integer.toString(r.nextInt(9));
-			}
-			Abonent abon = new Abonent(name, number);
-			phBookList.put(number, abon);
-		}
-	}
-
-	public static void findNumbersM(Map<String, Abonent> phB, ArrayList<String> numb) {
-
-		for (Iterator<Map.Entry<String, Abonent>> iter = phB.entrySet().iterator(); iter.hasNext();) {
-			Map.Entry<String, Abonent> abM = iter.next();
-			String currentPhNumber = abM.getKey();
-			if (numb.contains(currentPhNumber)) {
-				Abonent ab = abM.getValue();
-				ab.AbonentPrint();
-			}
-		}
-
-	}
-
-	public static void printAllBookM(Map<String, Abonent> phB) {
-
-		for (Iterator<Map.Entry<String, Abonent>> iter = phB.entrySet().iterator(); iter.hasNext();) {
-			Abonent ab = new Abonent();
-			Map.Entry<String, Abonent> abM = iter.next();
-			ab = abM.getValue();
-			ab.AbonentPrint();
-		}
-
-	}
-
-	// методы массива
-
-	public static void addPhoneBookArr(Abonent[] array, int n) { // заполнение
-
-		for (int i = 0; i < n; i++) {
-
-			Random r = new Random();
-			String name = "Abonent " + i;
-			String number = "+7 ";
-			for (int j = 0; j < 10; j++) {
-				number += Integer.toString(r.nextInt(9));
-			}
-			Abonent abon = new Abonent(name, number);
-			array[i] = abon;
-		}
-	}
-
-	public static void findNumbersArr(Abonent[] phB, ArrayList<String> numb) { // поиск
-
-		for (int i = 0; i < phB.length; i++) {
-			Abonent ab = new Abonent();
-			ab = phB[i];
-			String currentPhNumber = ab.getPhoneNumber();
-			if (numb.contains(currentPhNumber))
-				ab.AbonentPrint();
-		}
-
-	}
-
-	public static void printAllBookArr(Abonent[] phB) { // вывод списка
-
-		for (int i = 0; i < phB.length; i++) {
-			phB[i].AbonentPrint();
-		}
-
-	}
 
 }
