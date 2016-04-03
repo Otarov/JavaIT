@@ -6,21 +6,24 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Random;
 
-public class PhoneBook {
+public class PhoneBookTh {
 
 	static ArrayList<String> numbers = new ArrayList<>();
-	static int n = 1000000;   // количество элементов
-	public static void main(String[] args) { 
+	static int n = 100; // количество элементов
+
+	public static void main(String[] args) throws InterruptedException { // главный поток
 		addNumbers(numbers);
-		
+		Date beginTime = new Date();
 		ThreadSet thS = new ThreadSet();
 		ThreadMap thM = new ThreadMap();
 		ThreadArr thA = new ThreadArr();
-		thS.run();
-		thM.run();
-		thA.run();
+		thS.run(); // запуск теста с множеством
+//		thS.wait();
+		thM.run(); // запуск теста с картой
+//		thM.wait();
+		thA.run(); // запуск теста с массивом
+//		thA.wait();
 
-		
 		// списки
 		ArrayList<Abonent> phBookList = new ArrayList<>();
 
@@ -34,7 +37,7 @@ public class PhoneBook {
 																	// разницы
 		System.out.println("Заполнение списка завершилось через " + msDelay + " мс");
 
-		// printAllBook(phBookList); // это если интересно, что получилось
+		 printAllBook(phBookList); // это если интересно, что получилось
 
 		System.out.println("=========================================");
 
@@ -46,12 +49,13 @@ public class PhoneBook {
 		System.out.println("Поиск номеров среди " + phBookList.size() + " записей завершился через " + msDelay + " мс");
 
 		System.out.println("********************************");
+
+		System.out.println("***** ТЕСТ ЗАВЕРШЕН *****");
 		
-		
-		
-		
-				System.out.println("***** ТЕСТ ЗАВЕРШЕН *****");
-				
+		newTime = new Date();
+		msDelay = newTime.getTime() - beginTime.getTime();
+		System.out.println("***** " + msDelay + " мс *****");
+
 	}
 
 	public static void addNumbers(List<String> numbers) {
@@ -102,9 +106,5 @@ public class PhoneBook {
 		}
 
 	}
-
-	
-
-
 
 }

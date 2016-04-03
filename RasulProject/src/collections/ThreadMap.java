@@ -16,18 +16,18 @@ public class ThreadMap implements Runnable {
 
 		System.out.println("«аполнение карты началось.");
 		Date currentTime = new Date();
-		addPhoneBookMap(phBookMap, PhoneBook.n);
+		addPhoneBookMap(phBookMap, PhoneBookTh.n);
 		Date newTime = new Date();
 		long msDelay = newTime.getTime() - currentTime.getTime(); // вычисление
 																// разницы
 		System.out.println("«аполнение карты завершилось через " + msDelay + " мс");
 
-		// printAllBookM(phBookMap);
+		 printAllBookM(phBookMap);
 
 		System.out.println("=========================================");
 		System.out.println("ѕоиск номеров в карте началс€.");
 		currentTime = new Date();
-		findNumbersM(phBookMap, PhoneBook.numbers);
+		findNumbersM(phBookMap, PhoneBookTh.numbers);
 		newTime = new Date();
 		msDelay = newTime.getTime() - currentTime.getTime();
 		System.out.println("ѕоиск номеров среди " + phBookMap.size() + " записей карты завершилс€ через " + msDelay + " мс");

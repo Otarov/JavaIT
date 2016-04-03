@@ -17,18 +17,18 @@ public class ThreadSet implements Runnable {
 
 		System.out.println("«аполнение множества началось.");
 		Date currentTime = new Date();
-		addPhoneBookSet(phBookSet, PhoneBook.n);
+		addPhoneBookSet(phBookSet, PhoneBookTh.n);
 		Date newTime = new Date();
 		long msDelay = newTime.getTime() - currentTime.getTime(); // вычисление
 																// разницы
 		System.out.println("«аполнение множества завершилось через " + msDelay + " мс");
 
-		// printAllBook(phBookList);
+		 printAllBookS(phBookSet);
 		System.out.println("=========================================");
 
 		System.out.println("ѕоиск номеров в множестве началс€.");
 		currentTime = new Date();
-		findNumbersS(phBookSet, PhoneBook.numbers);
+		findNumbersS(phBookSet, PhoneBookTh.numbers);
 		newTime = new Date();
 		msDelay = newTime.getTime() - currentTime.getTime();
 		System.out.println("ѕоиск номеров среди " + phBookSet.size() + " записей множества завершилс€ через " + msDelay + " мс");
