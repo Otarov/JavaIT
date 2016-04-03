@@ -1,4 +1,4 @@
-package collections;
+package collections.phoneBookThread;
 
 
 import java.util.ArrayList;
@@ -22,7 +22,7 @@ public class ThreadArr implements Runnable{
 																	// разницы
 		System.out.println("Заполнение массива завершилось через " + msDelay + " мс");
 
-		printAllBookArr(phBookArr); // это если интересно, что получилось
+//		printAllBookArr(phBookArr); // это если интересно, что получилось
 
 		System.out.println("=========================================");
 

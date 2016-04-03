@@ -1,4 +1,4 @@
-package collections;
+package collections.phoneBookThread;
 
 public class Abonent {
 

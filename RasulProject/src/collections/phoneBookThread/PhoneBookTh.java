@@ -1,4 +1,4 @@
-package collections;
+package collections.phoneBookThread;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -9,7 +9,7 @@ import java.util.Random;
 public class PhoneBookTh {
 
 	static ArrayList<String> numbers = new ArrayList<>();
-	static int n = 100; // количество элементов
+	public static int n = 1000000; // количество элементов
 
 	public static void main(String[] args) throws InterruptedException { // главный поток
 		addNumbers(numbers);
@@ -17,11 +17,11 @@ public class PhoneBookTh {
 		ThreadSet thS = new ThreadSet();
 		ThreadMap thM = new ThreadMap();
 		ThreadArr thA = new ThreadArr();
-		thS.run(); // запуск теста с множеством
+		thS.run(); // запуск теста с множеством (1 поток)
 //		thS.wait();
-		thM.run(); // запуск теста с картой
+		thM.run(); // запуск теста с картой (2 поток)
 //		thM.wait();
-		thA.run(); // запуск теста с массивом
+		thA.run(); // запуск теста с массивом (3 поток)
 //		thA.wait();
 
 		// списки
@@ -37,7 +37,7 @@ public class PhoneBookTh {
 																	// разницы
 		System.out.println("Заполнение списка завершилось через " + msDelay + " мс");
 
-		 printAllBook(phBookList); // это если интересно, что получилось
+//		 printAllBook(phBookList); // это если интересно, что получилось
 
 		System.out.println("=========================================");
 
@@ -50,7 +50,7 @@ public class PhoneBookTh {
 
 		System.out.println("********************************");
 
-		System.out.println("***** ТЕСТ ЗАВЕРШЕН *****");
+		System.out.println("***** ТЕСТ ЗАВЕРШЕН (ПАРАЛЛЕЛЬНОСТЬ) *****");
 		
 		newTime = new Date();
 		msDelay = newTime.getTime() - beginTime.getTime();

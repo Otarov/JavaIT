@@ -1,4 +1,4 @@
-package collections;
+package collections.phoneBookThread;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -22,7 +22,7 @@ public class ThreadMap implements Runnable {
 																// разницы
 		System.out.println("«аполнение карты завершилось через " + msDelay + " мс");
 
-		 printAllBookM(phBookMap);
+//		 printAllBookM(phBookMap);
 
 		System.out.println("=========================================");
 		System.out.println("ѕоиск номеров в карте началс€.");

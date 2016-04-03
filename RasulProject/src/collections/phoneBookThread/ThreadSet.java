@@ -1,4 +1,4 @@
-package collections;
+package collections.phoneBookThread;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -23,7 +23,7 @@ public class ThreadSet implements Runnable {
 																// разницы
 		System.out.println("«аполнение множества завершилось через " + msDelay + " мс");
 
-		 printAllBookS(phBookSet);
+//		 printAllBookS(phBookSet);
 		System.out.println("=========================================");
 
 		System.out.println("ѕоиск номеров в множестве началс€.");

@@ -10,109 +10,114 @@ import java.util.Map;
 import java.util.Random;
 import java.util.Set;
 
-import collections.Abonent;
+import collections.phoneBookThread.Abonent;
+import collections.phoneBookThread.PhoneBookTh;
 
 public class PhoneBook {
 
 	public static void main(String[] args) {
 		ArrayList<String> numbers = new ArrayList<>();
 		addNumbers(numbers);
-
-		int n = 1000000; // êîëè÷åñòâî ýëåìåíòîâ
-		// ñïèñêè
+		Date beginTime = new Date();
+		int n = PhoneBookTh.n; //
+		// список
 		ArrayList<Abonent> phBookList = new ArrayList<>();
 
 		System.out.println("********************************");
 
-		System.out.println("Çàïîëíåíèå ñïèñêà íà÷àëîñü.");
+		System.out.println("Заполнение списка началось.");
 		Date currentTime = new Date();
 		addPhoneBookList(phBookList, n);
 		Date newTime = new Date();
-		long msDelay = newTime.getTime() - currentTime.getTime(); // âû÷èñëåíèå
-																	// ðàçíèöû
-		System.out.println("Çàïîëíåíèå ñïèñêà çàâåðøèëîñü ÷åðåç " + msDelay + " ìñ");
+		long msDelay = newTime.getTime() - currentTime.getTime();
 
-		// printAllBook(phBookList); // ýòî åñëè èíòåðåñíî, ÷òî ïîëó÷èëîñü
+		System.out.println("Заполнение списка завершилось через " + msDelay + " мс");
+
+		// printAllBook(phBookList);
 
 		System.out.println("=========================================");
 
-		System.out.println("Ïîèñê íîìåðîâ íà÷àëñÿ.");
+		System.out.println("Поиск номеров начался.");
 		currentTime = new Date();
 		findNumbersL(phBookList, numbers);
 		newTime = new Date();
 		msDelay = newTime.getTime() - currentTime.getTime();
-		System.out.println("Ïîèñê íîìåðîâ ñðåäè " + phBookList.size() + " çàïèñåé çàâåðøèëñÿ ÷åðåç " + msDelay + " ìñ");
+		System.out.println("Поиск номеров среди " + phBookList.size() + " записей завершился через " + msDelay + " мс");
 
 		System.out.println("********************************");
-		// ìíîæåñòâî
+
+		// множество
 		Set<Abonent> phBookSet = new HashSet<>();
 
-		System.out.println("Çàïîëíåíèå ìíîæåñòâà íà÷àëîñü.");
+		System.out.println("Заполнение множества началось.");
 		currentTime = new Date();
 		addPhoneBookSet(phBookSet, n);
 		newTime = new Date();
-		msDelay = newTime.getTime() - currentTime.getTime(); // âû÷èñëåíèå
-																// ðàçíèöû
-		System.out.println("Çàïîëíåíèå ìíîæåñòâà çàâåðøèëîñü ÷åðåç " + msDelay + " ìñ");
+		msDelay = newTime.getTime() - currentTime.getTime(); //
+
+		System.out.println("Заполнение множества завершилось через " + msDelay + " мс");
 
 		// printAllBook(phBookList);
 		System.out.println("=========================================");
 
-		System.out.println("Ïîèñê íîìåðîâ íà÷àëñÿ.");
+		System.out.println("Поиск номеров начался.");
 		currentTime = new Date();
 		findNumbersS(phBookSet, numbers);
 		newTime = new Date();
 		msDelay = newTime.getTime() - currentTime.getTime();
-		System.out.println("Ïîèñê íîìåðîâ ñðåäè " + phBookList.size() + " çàïèñåé çàâåðøèëñÿ ÷åðåç " + msDelay + " ìñ");
+		System.out.println("Поиск номеров среди " + phBookList.size() + " записей завершился через " + msDelay + " мс");
 
 		System.out.println("********************************");
-		// êàðòà
+
+		// карта
 		Map<String, Abonent> phBookMap = new HashMap<>();
 
-		System.out.println("Çàïîëíåíèå êàðòû íà÷àëîñü.");
+		System.out.println("Заполнение множества началось.");
 		currentTime = new Date();
 		addPhoneBookMap(phBookMap, n);
 		newTime = new Date();
-		msDelay = newTime.getTime() - currentTime.getTime(); // âû÷èñëåíèå
-																// ðàçíèöû
-		System.out.println("Çàïîëíåíèå êàðòû çàâåðøèëîñü ÷åðåç " + msDelay + " ìñ");
+		msDelay = newTime.getTime() - currentTime.getTime();
+		System.out.println("Заполнение карты завершилось через " + msDelay + " мс");
 
 		// printAllBookM(phBookMap);
 
 		System.out.println("=========================================");
-		System.out.println("Ïîèñê íîìåðîâ íà÷àëñÿ.");
+		System.out.println("Поиск номеров начался.");
 		currentTime = new Date();
 		findNumbersL(phBookList, numbers);
 		newTime = new Date();
 		msDelay = newTime.getTime() - currentTime.getTime();
-		System.out.println("Ïîèñê íîìåðîâ ñðåäè " + phBookList.size() + " çàïèñåé çàâåðøèëñÿ ÷åðåç " + msDelay + " ìñ");
+		System.out.println("Поиск номеров среди " + phBookList.size() + " записей завершился через " + msDelay + " мс");
 
-		// ìàññèâ
+		// массив
 		Abonent[] phBookArr = new Abonent[n];
 
 		System.out.println("********************************");
 
-		System.out.println("Çàïîëíåíèå ìàññèâà íà÷àëîñü.");
+		System.out.println("Заполнение множества началось.");
 		currentTime = new Date();
 		addPhoneBookArr(phBookArr, n);
 		newTime = new Date();
-		msDelay = newTime.getTime() - currentTime.getTime(); // âû÷èñëåíèå
-																// ðàçíèöû
-		System.out.println("Çàïîëíåíèå ìàññèâà çàâåðøèëîñü ÷åðåç " + msDelay + " ìñ");
+		msDelay = newTime.getTime() - currentTime.getTime();
+		System.out.println("Заполнение массива завершилось через " + msDelay + " мс");
 
-		// printAllBookArr(phBookArr); // ýòî åñëè èíòåðåñíî, ÷òî ïîëó÷èëîñü
+		// printAllBookArr(phBookArr);
 
 		System.out.println("=========================================");
 
-		System.out.println("Ïîèñê íîìåðîâ íà÷àëñÿ.");
+		System.out.println("Поиск номеров начался.");
 		currentTime = new Date();
 		findNumbersArr(phBookArr, numbers);
 		newTime = new Date();
 		msDelay = newTime.getTime() - currentTime.getTime();
-		System.out.println("Ïîèñê íîìåðîâ ñðåäè " + phBookList.size() + " çàïèñåé çàâåðøèëñÿ ÷åðåç " + msDelay + " ìñ");
+		System.out.println("Поиск номеров среди " + phBookList.size() + " записей завершился через " + msDelay + " мс");
 
 		System.out.println("********************************");
-		System.out.println("***** ÒÅÑÒ ÇÀÂÅÐØÅÍ *****");
+		System.out.println("***** ТЕСТ ЗАВЕРШЕН (ПОСЛЕДОВАТЕЛЬНОСТЬ) *****");
+		
+		newTime = new Date();
+		msDelay = newTime.getTime() - beginTime.getTime(); 
+		System.out.println("***** " + msDelay + " мс *****");
 
 	}
 
@@ -127,7 +132,7 @@ public class PhoneBook {
 		numbers.add("89280048750");
 	}
 
-	// ìåòîäû ñïèñêà
+	// методы списка
 	public static void addPhoneBookList(ArrayList<Abonent> phBookList, int n) { // çàïîëíåíèå
 
 		for (int i = 0; i < n; i++) {
@@ -165,7 +170,7 @@ public class PhoneBook {
 
 	}
 
-	// ìåòîäû ìíîæåñòâà
+	// методы множества
 
 	public static void addPhoneBookSet(Set<Abonent> phBookList, int n) {
 
@@ -204,7 +209,7 @@ public class PhoneBook {
 
 	}
 
-	
+	// карты
 	public static void addPhoneBookMap(Map<String, Abonent> phBookList, int n) {
 
 		for (int i = 0; i < n; i++) {
@@ -244,9 +249,8 @@ public class PhoneBook {
 
 	}
 
-	
-
-	public static void addPhoneBookArr(Abonent[] array, int n) { 
+	// массива
+	public static void addPhoneBookArr(Abonent[] array, int n) {
 
 		for (int i = 0; i < n; i++) {
 
@@ -261,7 +265,7 @@ public class PhoneBook {
 		}
 	}
 
-	public static void findNumbersArr(Abonent[] phB, ArrayList<String> numb) { 
+	public static void findNumbersArr(Abonent[] phB, ArrayList<String> numb) {
 
 		for (int i = 0; i < phB.length; i++) {
 			Abonent ab = new Abonent();
@@ -273,7 +277,7 @@ public class PhoneBook {
 
 	}
 
-	public static void printAllBookArr(Abonent[] phB) { 
+	public static void printAllBookArr(Abonent[] phB) {
 
 		for (int i = 0; i < phB.length; i++) {
 			phB[i].AbonentPrint();

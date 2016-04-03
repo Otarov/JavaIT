@@ -60,7 +60,7 @@ public class Matrix {			// общий класс двумерных целочисленных массивов (матриц)
 		this.m = 3;
 		for (int i = 0; i < n; i++)
 			for (int j = 0; j < m; j++)
-				array[i][j] = i + j;
+				this.array[i][j] = i + j;		
 			
 	}
 	
