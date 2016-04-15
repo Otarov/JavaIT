@@ -6,7 +6,8 @@ public class FileTest {
 
 	public static void main(String[] args) {
 
-		String path = System.getProperty("user.dir") + "\\JavaIT\\RasulProject\\src\\files";
+//		String path = System.getProperty("user.dir") + "\\JavaIT\\RasulProject\\src\\files";
+		String path = "D:/";
 		System.out.println(path);
 		File f = new File(path);
 		System.out.println(f.getName());
